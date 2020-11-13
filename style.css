@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+/* Убираем внутренние отступы */
+
+ul[class],
+ol[class] {
+    padding: 0;
+}
+
+
+/* Убираем внешние отступы */
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+
+/* Выставляем основные настройки по-умолчанию для body */
+
+body {
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+
+ul[class],
+ol[class] {
+    list-style: none;
+}
+
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+
+/* Упрощаем работу с изображениями */
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* Указываем понятную периодичность в потоке данных у article*/
+
+article>*+* {
+    margin-top: 1em;
+}
+
+
+/* Наследуем шрифты для инпутов и кнопок */
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+p,
+a,
+h1,
+h2,
+h3 {
+    font-family: Montserrat;
+}
+
+p {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 27px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+h1 {
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 60px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.yellow {
+    background-color: #FBCB03
+}
+
+.black {
+    background-color: #000000;
+    color: #fff
+}
+
+button {
+    height: 65px;
+    width: 210px;
+    border-radius: 12px;
+    border: none;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 27px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+
+.btns {
+    display: flex;
+    justify-content: space-between;
+    width: 75%;
+}
+
+.btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-hi:hover button {
+    background-color: #E6B901;
+}
+
+.btn-fp:hover button {
+    opacity: 0.8;
+}
+
+.btn img {
+    height: 50px;
+}
+
+.logo {
+    display: flex;
+    margin: 20% 0;
+}
+
+.left {
+    margin-left: 80px;
+    margin-bottom: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+    background: url(./img/bg.png) 100% 100% no-repeat;
+    display: flex;
+    flex-direction: row;
+}
+
+.box {
+    width: 60vw;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 15px;
+    position: relative;
+    overflow: hidden;
+    shape-outside: polygon(0 0, 0 300px, 200px 300px);
+    clip-path: polygon(38% 0, 100% 0, 100% 72%, 43% 71%, 0 24%);
+}
+
+.box::before {
+    content: '';
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    background-image: linear-gradient(180deg, transparent 0%, transparent 25%, #000000 25%, #000000 50%, transparent 50%, transparent 75%, #000000 75%, #000000 100%);
+    background-size: 300px 300px;
+    transform: rotate(225deg);
+    animation: animate 20s linear infinite;
+}
+
+@keyframes animate {
+    from {
+        background-position: 0;
+    }
+    to {
+        background-position: 0 3000px;
+    }
+}
+
+
+/* The Modal (background) */
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+
+/* Modal Content */
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+
+/* The Close Button */
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
