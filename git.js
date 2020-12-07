@@ -1,2 +1,2 @@
-React
+Angular
 Great framework
