@@ -1,2 +1,2 @@
 React 
-Great framework
+Is great framework
